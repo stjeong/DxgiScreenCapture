@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+    <metadata>
+        <id>DxgiScreenCapture</id>
+        <title>Screeen Capture Library using SharpDX</title>
+        <version>1.0.0</version>
+        <authors>SeongTae Jeong</authors>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Screeen Capture Library using SharpDX</description>
+        <tags>Screen Capture DXGI SharpDX</tags>
+        <projectUrl>https://github.com/stjeong/DxgiScreenCapture</projectUrl>
+        <license type="expression">MIT</license>
+        <dependencies>
+            <group targetFramework=".NETFramework4.0" />
+        </dependencies>
+    </metadata>
+</package>
