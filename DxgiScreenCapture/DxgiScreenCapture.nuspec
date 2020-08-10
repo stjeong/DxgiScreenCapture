@@ -3,7 +3,7 @@
     <metadata>
         <id>DxgiScreenCapture</id>
         <title>Screeen Capture Library using SharpDX</title>
-        <version>1.0.1</version>
+        <version>1.0.3</version>
         <authors>SeongTae Jeong</authors>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Screeen Capture Library using SharpDX</description>

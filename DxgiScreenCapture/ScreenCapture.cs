@@ -11,10 +11,22 @@ namespace DxgiScreenCapture
     {
         readonly DataStream _dataStream;
         public DataStream Data => _dataStream;
+        SharpDX.Direct2D1.Bitmap _bitmap;
 
-        public CapturedEventArgs(DataStream dataStream)
+        public CapturedEventArgs(SharpDX.Direct2D1.Bitmap bitmap, DataStream dataStream)
         {
             _dataStream = dataStream;
+            _bitmap = bitmap;
+        }
+
+        public System.Drawing.Bitmap GetAsBitmap()
+        {
+            int colums = _bitmap.PixelSize.Width;
+            int rows = _bitmap.PixelSize.Height;
+
+            System.Drawing.Bitmap bitmap = new System.Drawing.Bitmap(colums, rows, colums * 4,
+                 System.Drawing.Imaging.PixelFormat.Format32bppArgb, _dataStream.DataPointer);
+            return bitmap;
         }
     }
 
@@ -64,7 +76,6 @@ namespace DxgiScreenCapture
             _exitEvent.Set();
 
             _renderTarget.Dispose();
-
         }
 
         public void SignalToCapture()
@@ -97,7 +108,7 @@ namespace DxgiScreenCapture
                         renderer.DrawBitmap(_lastBitmap, 1.0f, BitmapInterpolationMode.Linear);
                     });
 
-                Captured?.Invoke(this, new CapturedEventArgs(_dataStream));
+                Captured?.Invoke(this, new CapturedEventArgs(_lastBitmap, _dataStream));
             }
         }
 
@@ -116,6 +127,7 @@ namespace DxgiScreenCapture
                         continue;
                     }
 
+                    // 이 코드에서 controlToDraw.Handle을 사용하면 "Cross-thread operation not valid" 오류 발생
                     _renderTarget.Initialize(_drawingWindowHandle, _clipRect.Width, _clipRect.Height);
 
                     // Initialize 호출 후 너무 빠르게 Capture를 호출하면 (검은 색의) 빈 화면이 나올 수 있음.

@@ -27,6 +27,10 @@ namespace WindowsFormsApp1
                 byte g = Marshal.ReadByte(srcPtr + 1);
                 byte r = Marshal.ReadByte(srcPtr + 2);
             }
+
+            // BMP 데이터로 저장
+            // System.Drawing.Bitmap bitmap = e.GetAsBitmap();
+            // bitmap.Save("test.bmp", System.Drawing.Imaging.ImageFormat.Bmp);
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)

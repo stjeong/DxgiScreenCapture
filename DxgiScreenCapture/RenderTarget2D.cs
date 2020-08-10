@@ -74,7 +74,23 @@ namespace DxgiScreenCapture
 
         public void Dispose()
         {
-            ReleaseResource();
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected bool _disposed = false;
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (_disposed == false)
+            {
+                if (disposing == true)
+                {
+                    ReleaseResource();
+                }
+
+                _disposed = true;
+            }
         }
 
         void ReleaseResource()
