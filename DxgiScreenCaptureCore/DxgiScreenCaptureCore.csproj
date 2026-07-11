@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <UseWindowsForms>true</UseWindowsForms>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="..\DxgiScreenCapture\CaptureSource.cs" Link="CaptureSource.cs" />
+        <Compile Include="..\DxgiScreenCapture\DXGIManager.cs" Link="DXGIManager.cs" />
+        <Compile Include="..\DxgiScreenCapture\DXGIOutputDuplication.cs" Link="DXGIOutputDuplication.cs" />
+        <Compile Include="..\DxgiScreenCapture\RenderTarget2D.cs" Link="RenderTarget2D.cs" />
+        <Compile Include="..\DxgiScreenCapture\ScreenCapture.cs" Link="ScreenCapture.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="SharpDX.Direct2D1" Version="4.2.0" />
+        <PackageReference Include="SharpDX.Direct3D11" Version="4.2.0" />
+        <PackageReference Include="SharpDX.DXGI" Version="4.2.0" />
+    </ItemGroup>
+
+</Project>

@@ -6,6 +6,12 @@ if '%1' == 'local' SET BUILDCONFIG=Debug
 
 FOR /F %%I IN ("%0") DO SET CURRENTDIR=%%~dpI
 
+pushd %CURRENTDIR%..\DxgiScreenCaptureCore
+dotnet restore
+dotnet publish
+robocopy .\bin\Release\publish %CURRENTDIR%nuget\root\lib\net8.0 *.dll
+popd
+
 msbuild %CURRENTDIR%%PRJNAME%.csproj /p:Configuration=%BUILDCONFIG%;DefineConstants="TRACE" /t:Rebuild
 if ERRORLEVEL 1 goto BuildError
 

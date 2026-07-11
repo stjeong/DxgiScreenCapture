@@ -140,7 +140,7 @@ namespace DxgiScreenCapture
             _swapChain.Present(0, PresentFlags.None);
         }
 
-        public Bitmap CreateBitmap(DataStream stream)
+        public SharpDX.Direct2D1.Bitmap CreateBitmap(DataStream stream)
         {
             var bitmapProperties = new BitmapProperties(new SharpDX.Direct2D1.PixelFormat(Format.B8G8R8A8_UNorm,
                                 SharpDX.Direct2D1.AlphaMode.Premultiplied));

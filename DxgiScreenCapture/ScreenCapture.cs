@@ -173,7 +173,7 @@ namespace DxgiScreenCapture
                     }
                 }
 
-                if (controlToDraw.Created)
+                if (controlToDraw?.Created == true)
                 {
                     controlToDraw.BeginInvoke((Action)(() => this.DrawToWindow()));
                 }

@@ -144,7 +144,11 @@ namespace DxgiScreenCapture
 
             try
             {
+#if NET8_0_OR_GREATER
+                _outputDuplication.TryAcquireNextFrame(timeout, out OutputDuplicateFrameInformation fi, out desktopResource);
+#else
                 _outputDuplication.AcquireNextFrame(timeout, out OutputDuplicateFrameInformation fi, out desktopResource);
+#endif
             }
             catch (SharpDXException e)
             {

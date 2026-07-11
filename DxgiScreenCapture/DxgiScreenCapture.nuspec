@@ -3,7 +3,7 @@
     <metadata>
         <id>DxgiScreenCapture</id>
         <title>Screeen Capture Library using SharpDX</title>
-        <version>1.0.3</version>
+        <version>1.0.4</version>
         <authors>SeongTae Jeong</authors>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Screeen Capture Library using SharpDX</description>
@@ -12,6 +12,7 @@
         <license type="expression">MIT</license>
         <dependencies>
             <group targetFramework=".NETFramework4.0" />
+            <group targetFramework="net8.0" />
         </dependencies>
     </metadata>
 </package>
