@@ -17,6 +17,7 @@ if ERRORLEVEL 1 goto BuildError
 
 robocopy %CURRENTDIR%bin\%BUILDCONFIG% %CURRENTDIR%nuget\root\lib\net40
 robocopy %CURRENTDIR% %CURRENTDIR%nuget\root %PRJNAME%.nuspec
+robocopy %CURRENTDIR%.. %CURRENTDIR%nuget\root README.md
 
 nuget pack %CURRENTDIR%\nuget\root\%PRJNAME%.nuspec -OutputDirectory %CURRENTDIR%nuget_output
 if %ERRORLEVEL% GTR 0 goto BuildError
